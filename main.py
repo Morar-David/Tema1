@@ -1,23 +1,36 @@
 # This is a sample Python script.
-
+from string import punctuation
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
+#('David Morar')
 
-print('David Morar')
+
+text = "Ce ar face Elena Lasconi dacă ar fi președinta Ucrainei. „Cred că la anul s-ar încheia acest ! război”"
+
+def articol(text):
+    jumatate = len(text) // 2
+    part1 = text[:jumatate]
+    part2 = text[jumatate:]
+
+    part1 = part1.upper().strip()
 
 
-t1="Liga Națiunilor. Cipru-Romania 0-3: Tricolorii au trei victorii "
-t2="din trei meciuri cu Lucescu antrenor și conduc grupa"
+    part2 = part2[::-1]
 
-def articol(text1):
-    print(text1.upper())
-    print(text1.strip())
-    print(text1.swapcase())
-    print(text1.title())
-    print(t1+t2)
+    part2 = part2.capitalize()
 
-articol(t1)
-articol(t2)
+    punctuatie = '.,!?'
+
+    part2 = ''.join(char for char in part2 if char not in punctuatie)
+
+    rezultat = part1 + ' ' + part2
+    return rezultat
+
+rezultat = articol(text)
+print(rezultat)
+
+
+
